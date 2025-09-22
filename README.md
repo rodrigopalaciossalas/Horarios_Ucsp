@@ -164,7 +164,3 @@ Cada endpoint devuelve JSON con estructura clara (ver ejemplo dentro del documen
 * **Autenticación incompleta:** prototipo con validación de dominio, producción con OAuth.
 
 ---
-
-## Al final del documento: "Qué haré si quieres que empiece ahora"
-
-Incluyo además un bloque listo para copiar/pegar del `main.py` mínimo (FastAPI) que implementa `/profesor`, `/curso` y `/aulas_libres` usando pandas + rapidfuzz. También dejo ejemplos de respuestas JSON y `curl` para probar.
