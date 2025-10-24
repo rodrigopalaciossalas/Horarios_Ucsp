@@ -1,25 +1,44 @@
-from fastapi import APIRouter, Query
+# backend/app/routers/aula.py
+from fastapi import APIRouter
+from app.utils import filtrar_por_aula, filtrar_por_aula_y_dia, filtrar_por_tipo, ordenar_por_dia_y_hora
 import pandas as pd
-from pathlib import Path
 
-router = APIRouter(prefix="/aula", tags=["aula"])
+router = APIRouter(prefix="/aulas", tags=["Aulas"])
 
-# Ruta absoluta del CSV
-DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "horarios_2025_2.csv"
+def df_to_json(df: pd.DataFrame):
+    """Convierte DataFrame a lista de diccionarios compatible con JSON"""
+    df_clean = df.where(pd.notnull(df), None)  # Reemplaza NaN por None
+    return df_clean.to_dict(orient="records")
 
-# Cargar CSV
-df = pd.read_csv(DATA_PATH)
-
-@router.get("/")
-def get_aula(nombre: str = Query(..., description="Código del aula o ambiente")):
-    resultados = df[df["AMBIENTE"].str.contains(nombre, case=False, na=False)]
-
-    # Convertir NaN → None
-    horarios = resultados.where(pd.notnull(resultados), None).to_dict(orient="records")
-
-
+@router.get("/{numero}")
+async def get_aula(numero: str):
+    df_result = filtrar_por_aula(numero)
+    df_result = ordenar_por_dia_y_hora(df_result)
     return {
-        "query": nombre,
-        "total": len(horarios),
-        "horarios": horarios
+        "aula": numero,
+        "total_horarios": len(df_result),
+        "horarios": df_to_json(df_result)
+    }
+
+@router.get("/{numero}/dias/{dia}")
+async def get_aula_dia(numero: str, dia: str):
+    df_result = filtrar_por_aula_y_dia(numero, dia)
+    df_result = ordenar_por_dia_y_hora(df_result)
+    return {
+        "aula": numero,
+        "dia": dia,
+        "total_horarios": len(df_result),
+        "horarios": df_to_json(df_result)
+    }
+
+@router.get("/{numero}/tipo/{tipo}")
+async def get_aula_tipo(numero: str, tipo: str):
+    df_result = filtrar_por_aula(numero)
+    df_result = filtrar_por_tipo(tipo).pipe(lambda d: d[d["AMBIENTE"].str.contains(numero, case=False, na=False)])
+    df_result = ordenar_por_dia_y_hora(df_result)
+    return {
+        "aula": numero,
+        "tipo": tipo,
+        "total_horarios": len(df_result),
+        "horarios": df_to_json(df_result)
     }
