@@ -47,6 +47,7 @@ project-root/
   │   └─ src/
   ├─ docs/
   └─ README.md
+  
 ```
 
 ---

@@ -33,8 +33,8 @@ async def get_aula_dia(numero: str, dia: str):
 
 @router.get("/{numero}/tipo/{tipo}")
 async def get_aula_tipo(numero: str, tipo: str):
-    df_result = filtrar_por_aula(numero)
-    df_result = filtrar_por_tipo(tipo).pipe(lambda d: d[d["AMBIENTE"].str.contains(numero, case=False, na=False)])
+    df_aula = filtrar_por_aula(numero)
+    df_result = filtrar_por_tipo(tipo, df_aula)
     df_result = ordenar_por_dia_y_hora(df_result)
     return {
         "aula": numero,

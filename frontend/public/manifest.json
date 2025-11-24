@@ -1,0 +1,62 @@
+{
+  "name": "Buscador de Horarios UCSP",
+  "short_name": "Horarios UCSP",
+  "description": "Aplicación para consultar horarios de clases, aulas y disponibilidad en UCSP",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/vite.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/vite.svg",
+      "type": "image/svg+xml",
+      "sizes": "540x720",
+      "form_factor": "narrow"
+    }
+  ],
+  "categories": ["education", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Buscar Profesor",
+      "short_name": "Profesor",
+      "description": "Buscar horarios por profesor",
+      "url": "/?search=profesor",
+      "icons": [
+        {
+          "src": "/vite.svg",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Aulas Libres",
+      "short_name": "Aulas",
+      "description": "Ver aulas libres disponibles",
+      "url": "/?search=aulas_libres",
+      "icons": [
+        {
+          "src": "/vite.svg",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}

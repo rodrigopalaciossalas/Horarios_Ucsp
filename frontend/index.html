@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="description" content="Buscador de horarios de clases, aulas y disponibilidad en UCSP" />
+    <title>Horarios UCSP - Buscador</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- Service Worker deshabilitado temporalmente para debug -->
+    <!-- 
+    <script>
+      // Register service worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(
+            (registration) => {
+              console.log('SW registered:', registration);
+            },
+            (err) => {
+              console.log('SW registration failed:', err);
+            }
+          );
+        });
+      }
+    </script>
+    -->
+  </body>
+</html>
+

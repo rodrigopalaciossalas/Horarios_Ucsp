@@ -24,8 +24,9 @@ def filtrar_por_curso(curso: str):
 def filtrar_por_dia(dia: str):
     return df[df["DIA"].str.contains(dia, case=False, na=False)]
 
-def filtrar_por_tipo(tipo: str):
-    return df[df["TIPO DICTADO"].str.contains(tipo, case=False, na=False)]
+def filtrar_por_tipo(tipo: str, dataframe: pd.DataFrame = None):
+    data = dataframe if dataframe is not None else df
+    return data[data["TIPO DICTADO"].str.contains(tipo, case=False, na=False)]
 
 # =========================
 # Filtros combinados (columna principal + día)

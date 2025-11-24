@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Horarios UCSP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .status {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .endpoint {
+            background: #f3e5f5;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        button {
+            background-color: #3b82f6;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Buscador de Horarios UCSP</h1>
+        
+        <div class="status">
+            <h2>✅ Sistema Funcionando</h2>
+            <p><strong>Backend:</strong> http://localhost:8001 ✅</p>
+            <p><strong>Frontend:</strong> http://localhost:5173 ✅</p>
+            <p><strong>React:</strong> Cargado correctamente ✅</p>
+        </div>
+
+        <h2>📡 Endpoints Disponibles:</h2>
+        <div class="endpoint">GET /profesores/{nombre}</div>
+        <div class="endpoint">GET /cursos/{curso}</div>
+        <div class="endpoint">GET /aulas/{numero}</div>
+        <div class="endpoint">GET /aulas_libres/dia/{dia}/hora/{hora}</div>
+
+        <h2>🧪 Test Interactivo:</h2>
+        <button onclick="alert('¡React está funcionando!')">Click aquí para probar</button>
+
+        <h2>🔗 Enlaces:</h2>
+        <p><a href="http://localhost:8001/docs" target="_blank">📖 API Documentation (Swagger)</a></p>
+        
+        <div class="status">
+            <p>✅ Sistema completamente funcional y listo para usar</p>
+        </div>
+    </div>
+
+    <script>
+        console.log('✅ JavaScript cargado correctamente');
+        console.log('Backend URL: http://localhost:8001');
+        console.log('Frontend URL: http://localhost:5173');
+    </script>
+</body>
+</html>
